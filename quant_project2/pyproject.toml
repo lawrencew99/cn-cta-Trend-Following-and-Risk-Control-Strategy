@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cn-cta"
+version = "0.1.0"
+description = "Daily CTA trend-following research toolkit for China ETFs and futures."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Wang Yonglin" }]
+dependencies = [
+    "numpy>=1.24",
+    "pandas>=2.0",
+]
+
+[project.optional-dependencies]
+akshare = [
+    "akshare>=1.16",
+]
+dev = [
+    "akshare>=1.16",
+    "matplotlib>=3.8",
+    "pytest>=8.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"
